@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+pydantic
+openai
+redis
+requests
+python-dotenv
+fastapi
+uvicorn
+langgraph
+redis
+pymongo
+pydantic
+python-dotenv
+google-generativeai
+pydantic-settings

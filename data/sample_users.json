@@ -1,0 +1,14 @@
+[
+  {
+    "user_id": "user_1",
+    "name": "Rahul",
+    "preferences": ["pizza", "pasta"],
+    "diet": "vegetarian"
+  },
+  {
+    "user_id": "user_2",
+    "name": "Ananya",
+    "preferences": ["burger", "wrap"],
+    "diet": "vegetarian"
+  }
+]

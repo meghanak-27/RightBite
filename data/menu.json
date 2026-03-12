@@ -1,0 +1,37 @@
+[
+  {
+    "id": "item_1",
+    "name": "Margherita Pizza",
+    "price": 299,
+    "category": "pizza",
+    "available": true
+  },
+  {
+    "id": "item_2",
+    "name": "Veg Burger",
+    "price": 149,
+    "category": "burger",
+    "available": true
+  },
+  {
+    "id": "item_3",
+    "name": "Pasta Alfredo",
+    "price": 249,
+    "category": "pasta",
+    "available": true
+  },
+  {
+    "id": "item_4",
+    "name": "Paneer Wrap",
+    "price": 199,
+    "category": "wrap",
+    "available": true
+  },
+  {
+    "id": "item_5",
+    "name": "Chocolate Milkshake",
+    "price": 129,
+    "category": "drink",
+    "available": true
+  }
+]

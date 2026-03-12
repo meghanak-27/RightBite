@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RightBite Agentic AI Test</title>
+<style>
+    body { font-family: Arial, sans-serif; background: #f5f5f5; }
+    #chat-container { width: 500px; margin: 50px auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);}
+    #messages { height: 300px; overflow-y: auto; border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; border-radius: 5px; }
+    .message { margin: 5px 0; }
+    .user { color: #007bff; font-weight: bold; }
+    .bot { color: #28a745; }
+    input[type="text"] { width: 80%; padding: 10px; border-radius: 5px; border: 1px solid #ddd; }
+    button { padding: 10px 15px; border-radius: 5px; border: none; background: #007bff; color: #fff; cursor: pointer; }
+    button:hover { background: #0056b3; }
+</style>
+</head>
+<body>
+
+<div id="chat-container">
+    <h2>RightBite Test Chat</h2>
+    <div id="messages"></div>
+    <input type="text" id="userInput" placeholder="Type your message..." />
+    <button onclick="sendMessage()">Send</button>
+</div>
+
+<script>
+async function sendMessage() {
+    const inputBox = document.getElementById('userInput');
+    const messagesDiv = document.getElementById('messages');
+    const message = inputBox.value.trim();
+    if (!message) return;
+
+    // Show user message
+    const userDiv = document.createElement('div');
+    userDiv.className = 'message user';
+    userDiv.innerText = 'You: ' + message;
+    messagesDiv.appendChild(userDiv);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+    inputBox.value = '';
+
+    try {
+        // Call FastAPI endpoint
+        const response = await fetch('/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message })
+        });
+
+        const data = await response.json();
+
+        // Show bot response
+        const botDiv = document.createElement('div');
+        botDiv.className = 'message bot';
+        botDiv.innerText = 'Bot: ' + JSON.stringify(data, null, 2);
+        messagesDiv.appendChild(botDiv);
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+    } catch (err) {
+        console.error(err);
+    }
+}
+</script>
+
+</body>
+</html>
